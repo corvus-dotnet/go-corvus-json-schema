@@ -6,6 +6,6 @@ COPY main.go .
 # No cgo, so the Go toolchain cross-compiles for the target platform without emulation.
 RUN CGO_ENABLED=0 go build -trimpath -o /bowtie-corvus-json-schema .
 
-FROM alpine:3.22
+FROM alpine:3.24
 COPY --from=build /bowtie-corvus-json-schema /usr/local/bin/
 CMD ["bowtie-corvus-json-schema"]
